@@ -87,7 +87,7 @@ import PassKit
         completion(PKPaymentAuthorizationResult(status: PKPaymentAuthorizationStatus.success, errors: nil))
         successfulPayment = true
 
-        let paymentDataDictionary: [AnyHashable: Any]? = try? JSONSerialization.jsonObject(with: payment.token.paymentData, options: .mutableContainers) as? [AnyHashable : Any]
+        let paymentDataDictionary: [AnyHashable: Any]? = try! JSONSerialization.jsonObject(with: payment.token.paymentData, options: .mutableContainers) as? [AnyHashable : Any]
         var paymentType: String = "debit"
 
         var paymentMethodDictionary: [AnyHashable: Any] = ["network": "", "type": paymentType, "displayName": ""]
